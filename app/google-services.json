@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "819621530629",
+    "firebase_url": "https://yourthoughts-dda92.firebaseio.com",
+    "project_id": "yourthoughts-dda92",
+    "storage_bucket": "yourthoughts-dda92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819621530629:android:c80b15128f80602407e06c",
+        "android_client_info": {
+          "package_name": "com.kgec.yourthoughtsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819621530629-mol0gkc9dmg7l4kkm3dmdiktdn98ormh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-BHauGxMlMiv6ES49rtL-9grR2tJrvz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819621530629-mol0gkc9dmg7l4kkm3dmdiktdn98ormh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
