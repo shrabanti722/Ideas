@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8F5F5"
+    android:backgroundTint="#F6EDED"
     tools:context=".ThoughtActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -11,7 +13,7 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-      <!--  <androidx.appcompat.widget.Toolbar
+        <!--  <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -20,7 +22,9 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_thought" />
+    <include
+        layout="@layout/content_thought"
+        android:background="#F3D8D8" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

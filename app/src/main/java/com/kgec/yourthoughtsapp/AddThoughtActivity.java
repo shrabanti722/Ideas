@@ -46,40 +46,36 @@ public class AddThoughtActivity extends AppCompatActivity {
 
         Intent ri = getIntent();
         final String uid = ri.getStringExtra("uid");
+        final String userName = ri.getStringExtra("name");
 
         ThoughtDetails t=new ThoughtDetails(uid);
         tvcurrentdate.setText(t.getDate().toString());
 
-        Log.i("TRUTH", "AddThought");
-
-
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //CollectionReference collectionReference=firestore.collection("thoughtlist");
                 Log.i("TRUTH", "onCLick");
                 Map<String,Object> map=new HashMap<>();
                 map.put("thoughttext",etthought.getText().toString());
-                map.put("cdate",tvcurrentdate.getText().toString());
-
+                map.put("cdate",new Timestamp(new java.util.Date()));
                 map.put("uid", uid);
-                Log.i("TRUTH", "uid : "+uid);
-                Log.i("TRUTH", "SC : "+firestore.collection("users").document(uid));
-                //map.put("username",)
+                map.put("username", userName);
+                map.put("commentcount", "0");
 
                 firestore.collection("thoughts").add(map)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Log.i("TRUTH", "onCLick3");
                                 Toast.makeText(AddThoughtActivity.this, "Data Added", Toast.LENGTH_LONG).show();
-                                Intent ri=new Intent();
+                                Intent ri=new Intent(AddThoughtActivity.this, ThoughtActivity.class);
 
-                                ThoughtDetails thought=new ThoughtDetails(String.valueOf(new Timestamp(new java.util.Date())),etthought.getText().toString());
+                                ThoughtDetails thought=new ThoughtDetails(userName, new java.util.Date(),etthought.getText().toString(), 0);
                                 tvcurrentdate.setText(thought.getDate());
-                                //t.setThought(etthought.getText().toString());
                                 ri.putExtra("NEWTHOUGHT", thought);
+                                ri.putExtra("name", userName);
+                                ri.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 setResult(Activity.RESULT_OK,ri);
+                                startActivity(ri);
                                 finish();
                             }
                         })
@@ -91,7 +87,7 @@ public class AddThoughtActivity extends AppCompatActivity {
                             }
                         });
             }
-        }); //end of btnadd
+        });
 
 
     }

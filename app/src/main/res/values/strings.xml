@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YourThoughtsAPP</string>
+    <string name="app_name">Ideas</string>
     <string name="title_activity_main2">Main2Activity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

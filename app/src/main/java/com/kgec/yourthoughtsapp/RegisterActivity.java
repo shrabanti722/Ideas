@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 if(user!=null){
                                     Map<String, Object> map = new HashMap<>();
                                     map.put("Name", etname.getText().toString());
-                                    map.put("Emails", etemail);
+                                    map.put("Email", etemail.getText().toString());
 
                                     firestore.collection("users").document(user.getUid()).set(map)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                     Toast.makeText(RegisterActivity.this, "Registered Successfully!", Toast.LENGTH_LONG).show();
                                                     Intent i = new Intent(RegisterActivity.this, ThoughtActivity.class);
                                                     i.putExtra("uid", user.getUid());
+                                                    i.putExtra("name", etname.getText().toString());
                                                     startActivity(i);
                                                 }
                                             })

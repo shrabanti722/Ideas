@@ -4,11 +4,13 @@ import android.widget.ImageView;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class Comment implements Serializable {
     private String commenttext;
     private String username;
+    private String uid;
     private String createDate;
     private ImageView profile;
 
@@ -17,12 +19,13 @@ public class Comment implements Serializable {
         createDate = sdf.format(new java.util.Date());
     }
 
-    public Comment(String commenttext, String username, String createDate) {
+    public Comment(String commenttext, String username, Date ccdate, String uid) {
         SimpleDateFormat sdf  = new SimpleDateFormat("MMM d, yyyy", Locale.getDefault());
-        createDate = sdf.format(new java.util.Date());
+        createDate = sdf.format(ccdate);
         this.commenttext = commenttext;
         this.username = username;
         this.createDate = createDate;
+        this.uid = uid;
     }
 
     public Comment(String commenttext, String username, ImageView profile) {

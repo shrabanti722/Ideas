@@ -11,6 +11,7 @@ public class ThoughtDetails implements Serializable {
     private String date;
     private String thought;
     private int likes;
+    private int commentCount;
     private int comments;
     private int photo;
     private String uid;
@@ -34,12 +35,13 @@ public class ThoughtDetails implements Serializable {
         this.thought = thought;
     }
 
-    public ThoughtDetails(String name, String date, String thought) {
+    public ThoughtDetails(String name, Date ccdate, String thought, int commentCount) {
         SimpleDateFormat sdf=new SimpleDateFormat("MMM d , yyyy", Locale.getDefault());
-        date=sdf.format(new java.util.Date());
+        date=sdf.format(ccdate).toString();
         this.name = name;
         this.date = date;
         this.thought = thought;
+        this.commentCount=commentCount;
     }
 
     public ThoughtDetails(String uid) {
@@ -95,6 +97,14 @@ public class ThoughtDetails implements Serializable {
 
     public String getThought() {
         return thought;
+    }
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
     }
 
     public void setThought(String thought) {
